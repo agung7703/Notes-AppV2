@@ -1,0 +1,343 @@
+/* GOOGLE FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+
+/* VARIABLES CSS */
+:root {
+  --header-height: 3.5rem;
+
+  /* Colors */
+  --black-color: #303841;
+  --black-color-light: #3a4750;
+  --teal-color: #00adb5;
+  --neon-blue-color: #a3d8ff;
+  --white-color: #eeeeee;
+  --yelow-color: #ffb200;
+  --red-color: #e52020;
+  --body-color: #f7f7f7;
+  --container-color: var(--white-color);
+  --shadow-small-img: drop-shadow(0 4px 16px var(--black-color-light));
+
+  /* Font and typography */
+  /* NOTE: .5rem = 8px | 1rem = 16px */
+  --body-font: "Montserrat", sans-serif;
+  --biggest-font-size: 2.5rem;
+  --bigger-font-size: 1.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /* Font weight */
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /* z index */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/* Responsive typography */
+@media screen and (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 4.25rem;
+    --bigger-font-size: 2.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+/* BASE */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--black-color);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--black-color);
+  font-weight: var(--font-regular);
+  line-height: 120%;
+}
+
+/* REUSABLE CSS CLASSES */
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.section {
+  padding-block: 5rem 1rem;
+  justify-items: center;
+}
+
+.section__title {
+  text-align: center;
+  font-size: var(--bigger-font-size);
+  margin-bottom: 2rem;
+}
+
+.main {
+  overflow: hidden;
+}
+
+/*======================= HEADER =======================*/
+.header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  justify-items: center;
+  background-color: var(--black-color);
+  box-shadow: 0 2px 16px var(--black-color);
+  z-index: var(--z-fixed);
+}
+
+navbar-el {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav__title {
+  color: var(--white-color);
+  text-align: center;
+  font-weight: var(--font-semi-bold);
+}
+
+/*======================= Main =======================*/
+/* ----- form ----- */
+.form__container {
+  padding-block: 2rem 3rem;
+  border: 1px solid var(--teal-color);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px var(--neon-blue-color);
+  background-color: var(--white-color);
+  align-content: center;
+}
+
+.form__title {
+  font-size: var(--bigger-font-size);
+  text-align: center;
+  color: var(--teal-color);
+}
+
+.form__note {
+  padding: 0 2.5rem;
+  flex-direction: column;
+}
+
+.notes__label {
+  width: 100%;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid var(--black-color);
+  border-radius: 4px;
+  font-size: var(--normal-font-size);
+}
+
+textarea {
+  height: 59px;
+  resize: horizontal;
+}
+
+textarea:is(:focus, :valid) {
+  border-width: 2px;
+  padding: 14px;
+  border-color: #007bff;
+}
+
+textarea::-webkit-scrollbar {
+  width: 0px;
+}
+
+.btn-submit {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-submit:disabled {
+  background-color: #ccc;
+}
+
+/* ----- NOTES LIST DATA ----- */
+.notes__container {
+  padding-block: 2rem 3rem;
+  width: 100%;
+  align-content: center;
+}
+
+.notes__title {
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-semi-bold);
+  text-align: center;
+}
+
+.notes__data {
+  margin-top: 20px;
+  margin: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.note-list__item {
+  position: relative;
+  background-color: var(--body-color);
+  border: 1px solid var(--black-color);
+  box-shadow: 0 2px 8px var(--black-color-light);
+  border-radius: 10px;
+  padding: 10px;
+  flex-direction: column;
+}
+
+.note__title {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-medium);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+
+.note__body {
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-regular);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  text-overflow: ellipsis;
+}
+
+.button-action {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding-top: 1rem;
+  align-items: center;
+}
+
+.btn--archive {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 10px;
+}
+
+.btn--archive i {
+  display: none;
+  align-content: center;
+}
+
+.btn--archive i.active {
+  display: inline-block;
+}
+
+.edit__button,
+.delete__button {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 10px;
+}
+
+.edit__button {
+  background-color: var(--yelow-color);
+}
+
+.delete__button {
+  background-color: var(--red-color);
+}
+
+.delete__button i {
+  color: var(--white-color);
+}
+
+/*======================= FOOTER =======================*/
+.footer {
+  padding-block: 4rem 2rem;
+}
+
+.footer__policy {
+  display: flex;
+  column-gap: 2rem;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.footer__link {
+  font-size: var(--small-font-size);
+  color: var(--black-color-light);
+}
+
+.footer__copy {
+  display: block;
+  margin-top: 2rem;
+  text-align: center;
+  font-size: var(--small-font-size);
+}
+
+/*======================= SCROLL UP =======================*/
+.scrollup {
+  position: fixed;
+  right: 1rem;
+  bottom: -50%;
+  background-color: var(--white-color);
+  box-shadow: 0 4px 16px var(--black-color-light);
+  color: var(--black-color);
+  display: inline-flex;
+  padding: 6px;
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
+  z-index: var(--z-tooltip);
+  transition: bottom 0.4s, transform 0.4s;
+}
+
+.scrollup:hover {
+  transform: translateY(-0.5rem);
+}
+
+.show-scroll {
+  bottom: 3rem;
+}
+
+@media (max-width: 600px) {
+  .notes__data {
+    grid-template-columns: 1fr;
+  }
+}

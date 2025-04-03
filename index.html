@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes APP</title>
+    <link rel="icon" href="./assets/img/logo.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <navbar-el></navbar-el>
+    </header>
+    <!-- MAIN -->
+    <main class="main">
+      <section class="form section" id="form">
+        <div class="form__container container grid">
+          <h2 class="form__title">Tambahkan Catatan Anda</h2>
+          <form class="form__note" id="note-form" novalidate>
+            <input type="hidden" id="note-id" name="note-id" value="" />
+            <label class="notes__label" for="note-title">Judul Catatan:</label>
+            <input
+              type="text"
+              id="note-title"
+              placeholder="Judul Catatan"
+              required
+            />
+            <label class="notes__label" for="note-body">Isi Catatan:</label>
+            <textarea
+              id="note-body"
+              placeholder="Isi Catatan"
+              required
+            ></textarea>
+            <button class="btn-submit" type="submit">Tambah Catatan</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="notes section" id="notes">
+        <div class="notes__container container gid">
+          <h2 class="notes__title">Catatan Anda</h2>
+          <div id="full-note-display" class="full-note-display"></div>
+          <div class="notes__data" id="notes-data"></div>
+        </div>
+
+        <full-note-modal></full-note-modal>
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <policy-el></policy-el>
+    </footer>
+    <scroll-up></scroll-up>
+    <loading-indicator></loading-indicator>
+  </body>
+</html>
