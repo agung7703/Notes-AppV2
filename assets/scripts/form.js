@@ -28,7 +28,7 @@ class Form {
     if (showLoader) {
       this.showLoading();
     }
-    let fetchError = false; // Tambahkan flag untuk menandai error fetch
+    let fetchError = false;
     try {
       const nonArchivedNotes = await this.utils.getNotes();
       const archivedNotes = await this.utils.getArchivedNotes();
@@ -48,14 +48,13 @@ class Form {
         "Terjadi kesalahan saat memuat data."
       );
       if (error instanceof TypeError && error.message === "Failed to fetch") {
-        fetchError = true; // Set flag jika error adalah Failed to fetch
+        fetchError = true;
       }
     } finally {
       if (showLoader) {
         this.hideLoading();
       }
       if (!fetchError) {
-        // Hanya set timeout jika tidak ada error fetch
         setTimeout(() => this.fetchDataPeriodically(), 5000);
       } else {
         console.warn(
@@ -75,9 +74,7 @@ class Form {
       await this.loadAndRenderNotes(false);
     } catch (error) {
       console.error("Gagal memperbarui data secara berkala:", error);
-      // Penanganan error di sini sudah dilakukan di loadAndRenderNotes
     } finally {
-      // setTimeout dipindahkan ke loadAndRenderNotes untuk kontrol error fetch
     }
   }
 
@@ -92,7 +89,7 @@ class Form {
     if (this.isSubmitting) return;
 
     this.isSubmitting = true;
-    this.showLoading(); // Tampilkan loading saat menambah note
+    this.showLoading();
     const noteForm = event.target;
     const note = this.getFormData(noteForm);
     let result;
@@ -129,7 +126,7 @@ class Form {
         "Terjadi kesalahan saat menyimpan catatan."
       );
     } finally {
-      this.hideLoading(); // Sembunyikan loading setelah menambah note selesai
+      this.hideLoading();
     }
   }
 
@@ -228,7 +225,6 @@ class Form {
   }
 
   async toggleArchiveStatus(noteId, isCurrentlyArchived, noteItem) {
-    // Tidak menampilkan loading saat mengarsipkan/unarsipkan
     const archive = !isCurrentlyArchived;
     let result;
 
@@ -240,7 +236,7 @@ class Form {
       }
 
       if (!result.error) {
-        this.loadAndRenderNotes(false); // Perbarui UI tanpa menampilkan loader
+        this.loadAndRenderNotes(false);
         this.showSweetAlert(
           "success",
           "Berhasil",
@@ -261,7 +257,6 @@ class Form {
         "Terjadi kesalahan saat mengarsipkan/unarsipkan."
       );
     } finally {
-      // Tidak menyembunyikan loading di sini
     }
   }
 
@@ -317,7 +312,7 @@ class Form {
   }
 
   async deleteNote(noteId) {
-    this.showLoading(); // Tampilkan loading saat menghapus note
+    this.showLoading();
     try {
       const result = await this.utils.removeNote(noteId);
       if (!result.error) {
@@ -338,7 +333,7 @@ class Form {
         "Terjadi kesalahan saat menghapus catatan."
       );
     } finally {
-      this.hideLoading(); // Sembunyikan loading setelah menghapus note selesai
+      this.hideLoading();
     }
   }
 

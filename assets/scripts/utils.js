@@ -90,11 +90,11 @@ class Utils {
       const responseJson = await response.json();
       this.showResponseMessage(responseJson.message);
       await this.getNotes();
-      return { error: false }; // Mengembalikan objek dengan error: false jika berhasil
+      return { error: false };
     } catch (error) {
       this.showResponseMessage(error);
       console.error("Error saat menambahkan catatan:", error);
-      return { error: true, message: error.message }; // Mengembalikan objek dengan error: true jika gagal
+      return { error: true, message: error.message };
     }
   }
 
@@ -158,11 +158,11 @@ class Utils {
       const responseJson = await response.json();
       this.showResponseMessage(responseJson.message);
       await this.getNotes();
-      return { error: false }; // Mengembalikan objek dengan error: false jika berhasil
+      return { error: false };
     } catch (error) {
       this.showResponseMessage(error);
       // console.error("Error saat memperbarui catatan:", error);
-      return { error: true, message: error.message }; // Mengembalikan objek dengan error: true jika gagal
+      return { error: true, message: error.message };
     }
   }
 
@@ -176,17 +176,17 @@ class Utils {
       const responseJson = await response.json();
       // console.log("Response JSON delete:", responseJson);
       this.showResponseMessage(responseJson.message);
-      return { error: false }; // Mengembalikan objek dengan error: false jika berhasil
+      return { error: false };
     } catch (error) {
       // console.error("Error saat menghapus catatan:", error);
       this.showResponseMessage(error);
-      return { error: true, message: error.message }; // Mengembalikan objek dengan error: true jika gagal
+      return { error: true, message: error.message };
     }
   }
 
   showResponseMessage(message) {
     if (this.form && this.form.showSweetAlert) {
-      let icon = "info"; // Default icon
+      let icon = "info";
       if (message.toLowerCase().includes("berhasil")) {
         icon = "success";
       } else if (
@@ -195,10 +195,10 @@ class Utils {
       ) {
         icon = "error";
       }
-      this.form.showSweetAlert(icon, message, ""); // Gunakan SweetAlert dari instance Form
+      this.form.showSweetAlert(icon, message, "");
     } else {
-      console.log("Pesan:", message); // Fallback jika instance Form belum diset
-      // alert(message); // Anda bisa tetap menggunakan alert sebagai fallback jika perlu
+      console.log("Pesan:", message);
+      // alert(message);
     }
   }
 }
