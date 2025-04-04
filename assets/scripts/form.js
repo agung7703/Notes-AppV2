@@ -225,6 +225,7 @@ class Form {
   }
 
   async toggleArchiveStatus(noteId, isCurrentlyArchived, noteItem) {
+    this.showLoading();
     const archive = !isCurrentlyArchived;
     let result;
 
@@ -257,6 +258,7 @@ class Form {
         "Terjadi kesalahan saat mengarsipkan/unarsipkan."
       );
     } finally {
+      this.hideLoading();
     }
   }
 

@@ -2,7 +2,7 @@
   "name": "notes-apps-v2",
   "description": "",
   "scripts": {
-    "dev": "webpack serve --config ./webpack.dev.js",
+    "start-dev": "webpack serve --config ./webpack.dev.js",
     "build": "webpack --config ./webpack.prod.js",
     "serve": "npx http-server ./dist --port 9000"
   },
