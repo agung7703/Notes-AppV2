@@ -1,4 +1,4 @@
-import "../CSS/styles.css";
+import "../assets/CSS/styles.css";
 import Utils from "./utils.js";
 import Form from "./form.js";
 import "./components/navbar.js";

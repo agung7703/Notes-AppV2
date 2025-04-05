@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  entry: "./assets/scripts/main.js",
+  entry: "./src/scripts/main.js",
   output: {
     path: path.resolve(__dirname, "dist"),
   },
@@ -21,8 +21,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: "./assets/img/",
-          to: "./assets/img",
+          from: "./src/assets/img/",
+          to: "./src/assets/img",
         },
       ],
     }),

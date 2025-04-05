@@ -5,6 +5,6 @@ module.exports = merge(commonConfig, {
   mode: "development",
   devServer: {
     static: "./dist",
-    watchFiles: ["./assets", "./index.html"],
+    watchFiles: ["./src", "./index.html"],
   },
 });
