@@ -69,7 +69,7 @@ class FullNoteModal extends HTMLElement {
         <div class="modal">
           <div class="modal-content">
             <button class="close-button">
-              <img src="./assets/img/close-large-line.svg" alt="Close" style="width: 1.5rem; height: 1.5rem;">
+              <img src="./src/assets/img/close-large-line.svg" alt="Close" style="width: 1.5rem; height: 1.5rem;">
             </button>
             <h3 id="modal-note-title"></h3>
             <p id="modal-note-body"></p>

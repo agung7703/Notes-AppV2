@@ -1,4 +1,4 @@
-import "./components/fullNoteModal.js";
+import "./components/full-note-modal.js";
 import "./components/loading-indikator.js";
 import Swal from "sweetalert2";
 
